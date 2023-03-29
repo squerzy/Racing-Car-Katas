@@ -28,12 +28,17 @@ func (a *alarm) isAlarmOn() bool {
 	return a.alarmOn
 }
 
-func NewAlarm() Alarm {
+func NewAlarm(s Sensor) Alarm {
+
+	if s == nil {
+		s = NewSensor()
+	}
+
 	return &alarm{
 		lowPressureThreshold:  17,
 		highPressureThreshold: 21,
 		alarmOn:               false,
-		sensor:                NewSensor(), // SOLID - Open Closed Violation
+		sensor:                s, // SOLID - Open Closed Violation
 	}
 
 }

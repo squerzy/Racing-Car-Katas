@@ -12,7 +12,7 @@ type alarmTest struct {
 
 func TestNoAlarmTriggered(t *testing.T) {
 	t.Run("Do something", func(t *testing.T) {
-		a := NewAlarm()
+		a := NewAlarm(nil)
 		a.check()
 
 		if a.isAlarmOn() {
