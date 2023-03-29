@@ -1,6 +1,8 @@
 package tpms
 
-import "testing"
+import (
+	"testing"
+)
 
 type alarmTest struct {
 	it       string
@@ -8,9 +10,14 @@ type alarmTest struct {
 	actual   func() bool
 }
 
-func TestAlarm(t *testing.T) {
+func TestNoAlarmTriggered(t *testing.T) {
 	t.Run("Do something", func(t *testing.T) {
 		a := NewAlarm()
 		a.check()
+
+		if a.isAlarmOn() {
+			t.Error("Expected no alarm but was Alarm")
+		}
 	})
+
 }

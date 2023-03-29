@@ -1,8 +1,8 @@
 package tpms
 
 import (
-	"fmt"
 	"math/rand"
+	"time"
 )
 
 type sensor struct {
@@ -17,13 +17,13 @@ func (s sensor) popNextPressurePsiValue() int {
 func NewSensor() Sensor {
 	return &sensor{
 		offset: func() int {
-			return 16
+			return 0
 		},
 		samplePressure: func() int {
-			s := rand.NewSource(42)
+			s := rand.NewSource(time.Now().UnixNano())
 			r := rand.New(s)
-			pressureTelemetryValue := 6 * r.Intn(1) * r.Intn(1)
-			fmt.Println(pressureTelemetryValue)
+			pressureTelemetryValue := r.Intn(20) + 10
+			// fmt.Printf("New Sensor: %d", pressureTelemetryValue)
 			return pressureTelemetryValue
 		},
 	}
