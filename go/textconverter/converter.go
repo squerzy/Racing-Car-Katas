@@ -19,7 +19,7 @@ type Converter struct {
 	result        []string
 }
 
-//ConvertToHTML converts unitoce text to HTML friendly text
+// ConvertToHTML converts unicode text to HTML friendly text
 func (c Converter) ConvertToHTML(fileName string) ([]string, error) {
 	f, err := os.Open(fileName)
 	if err != nil {
