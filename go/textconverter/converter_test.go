@@ -21,12 +21,6 @@ func TestConverter(t *testing.T) {
 
 		isEqual := reflect.DeepEqual(res, expected)
 
-		// for i := range res {
-		// 	if res[i] != expected[i] {
-		// 		t.Fatalf("Exepected no error, but got one\nExpected: %+v\nResult:   %+v\n", expected[i], res[i])
-		// 	}
-		// }
-
 		if !isEqual {
 			t.Fatalf("Exepected no error, but got one\nExpected: %+v\nResult:   %+v\n", expected, res)
 		}
